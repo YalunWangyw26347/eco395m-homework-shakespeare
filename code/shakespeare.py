@@ -64,7 +64,7 @@ def get_shakespeare_words(shakespeare_lines):
         for n in wordss:
             newword=n.lower()
             words.append(newword)
-    print(words)
+    #print(words)
     return words
 
 
@@ -72,11 +72,11 @@ def get_shakespeare_words(shakespeare_lines):
 def count_words(words, stopwords):
     """Counts the words that are not stopwords.
     returns a dictionary with words as keys and values."""
-    word_counts = {}
+    word_counts = dict()
     for i in words:
         if i not in stopwords:
             word_counts[i]=word_counts.get(i,0)+1
-    print(word_counts)
+    #print(word_counts)
     return word_counts
 
 
@@ -86,13 +86,13 @@ def sort_word_counts(word_counts):
     Returns a list of (word, count) tuples that are sorted by count in descending order."""
     sorted_word_counts = sorted(word_counts.items(), key=lambda x: x[1], reverse=True)
     # fill this in
-    print(sorted_word_counts)
+    #print(sorted_word_counts)
     return sorted_word_counts
 
 
 def write_word_counts(sorted_word_counts, path):
     """Takes a list of (word, count) tuples and writes them to a CSV."""
-    print(len(sorted_word_counts))
+    #print(len(sorted_word_counts))
     with open(OUTPUT_PATH,'w') as f:
         csv_writer= csv.writer(f)
         csv_writer.writerow(['word', 'count'])
