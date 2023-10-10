@@ -19,10 +19,10 @@ def load_stopwords():
     with open (STOPWORDS_PATH) as sw:
         for line in sw:
             words=line.strip()  
-            stopwords.add(words)
-    #print(stopwords)
-    # fill this in
-#print(load_stopwords())    
+            clean_text = re.sub('[^A-Za-z\s]', '', words)
+            text_with_only_spaces = re.sub("\s+", " ", clean_text)
+            stopwords.add(text_with_only_spaces)
+    print(stopwords)
     return stopwords
 
 
